@@ -69,7 +69,7 @@ class Logger:
         return Logger(self.enable_debug)
 
 
-logging = Logger(True)
+logging = Logger(False)
 
 logger = logging.getLogger(__name__)
 
