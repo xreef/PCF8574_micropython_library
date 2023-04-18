@@ -3,7 +3,7 @@
 #
 # AUTHOR:  Renzo Mischianti
 # Website: www.mischianti.org
-# VERSION: 0.0.1
+# VERSION: 0.0.2
 #
 # Description:
 # This script use pcf8574 with interrupt in constructor
@@ -25,7 +25,7 @@
 
 from machine import Pin
 import utime
-from PCF8574 import PCF8574, P0, P7, P6, P1, P2, P3, P5, P4
+from PCF8574 import PCF8574
 
 count: int = 0
 
@@ -39,6 +39,6 @@ def callback(pin):
 
 pcf = PCF8574(0x38, sda=21, scl=22, interrupt_callback=callback, interrupt_pin=18)
 
-pcf.Pin(P0, Pin.IN)
+pcf.Pin(PCF8574.P0, Pin.IN)
 
 pcf.begin()

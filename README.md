@@ -15,6 +15,7 @@
 # PCF8574 PCF8574AP digital input and output expander with i2c bus.
 
 ## Changelog
+ - 18/04/2023: v0.0.2 Add static declaration for Px constants inside class.
  - 14/04/2023: v0.0.1 Initial commit of stable version.
 
 I try to simplify the use of this IC, with a minimal set of operations.
@@ -34,13 +35,13 @@ pip install pcf8574-library
 **Constructor:**
 Pass the address of I2C 
 ```python
-    from PCF8574 import PCF8574, P0, P7, P6, P1, P2, P3, P5, P4
+    from PCF8574 import PCF8574
     
     pcf = PCF8574(0x38, sda=21, scl=22)
 ```
 To use interrupt you must pass the interrupt pin and the function to call when interrupt raised from PCF8574
 ```python
-    from PCF8574 import PCF8574, P0, P7, P6, P1, P2, P3, P5, P4
+    from PCF8574 import PCF8574
     
     def keyPressedOnPCF8574(pin):
         # Interrupt called (No Serial no read no wire in this function, and DEBUG disabled on PCF library)
@@ -52,17 +53,17 @@ To use interrupt you must pass the interrupt pin and the function to call when i
 You must set input/output mode:
 ```python
     from machine import Pin
-    from PCF8574 import PCF8574, P0, P7, P6, P1, P2, P3, P5, P4
+    from PCF8574 import PCF8574
 
-    pcf.Pin(P0, Pin.IN)
-    pcf.Pin(P1, Pin.IN, Pin.PULL_UP)
-    pcf.Pin(P2, Pin.IN)
-    pcf.Pin(P3, Pin.IN)
+    pcf.Pin(PCF8574.P0, Pin.IN)
+    pcf.Pin(PCF8574.P1, Pin.IN, Pin.PULL_UP)
+    pcf.Pin(PCF8574.P2, Pin.IN)
+    pcf.Pin(PCF8574.P3, Pin.IN)
     
-    pcf.Pin(P7, Pin.OUT)
-    pcf.Pin(P6, Pin.OUT, 1)
-    pcf.Pin(P5, Pin.OUT, 0)
-    pcf.Pin(P4, Pin.OUT, 0)
+    pcf.Pin(PCF8574.P7, Pin.OUT)
+    pcf.Pin(PCF8574.P6, Pin.OUT, 1)
+    pcf.Pin(PCF8574.P5, Pin.OUT, 0)
+    pcf.Pin(PCF8574.P4, Pin.OUT, 0)
 ```
 
 then IC as you can see in the image has 8 digital input/output ports:
@@ -91,13 +92,13 @@ To read all analog input in one trasmission you can do (even if I use a 10millis
 
 If you want to read a single input:
 ```python
-    digital_input = pcf.digital_read(P1)
+    digital_input = pcf.digital_read(PCF8574.P1)
     print(digital_input)
 ```
 
 If you want to write a digital value:
 ```python
-    pcf.digital_write(P1, 1)
+    pcf.digital_write(PCF8574.P1, 1)
 ```
 
 You can also use an interrupt pin:

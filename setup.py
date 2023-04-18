@@ -6,7 +6,7 @@ setup(
     name="pcf8574-library",
     package_dir={'': 'src'},
     py_modules=["PCF8574"],
-    version="0.0.1",
+    version="0.0.2",
     description="PCF8574 micropython library. i2c digital expander for Arduino, Raspberry Pi Pico and rp2040 boards, esp32, SMT32 and ESP8266",
     long_description="PCF8574 micropython library. i2c digital expander for Arduino, Raspberry Pi Pico and rp2040 boards, esp32, SMT32 and ESP8266. Can read write digital values with only 2 wire. Very simple to use",
     keywords="micropython, digital, i2c, expander, pcf8574, pcf8574a, esp32, esp8266, stm32, SAMD, Arduino, wire, rp2040, Raspberry",

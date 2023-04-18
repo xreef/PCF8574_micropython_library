@@ -3,7 +3,7 @@
 #
 # AUTHOR:  Renzo Mischianti
 # Website: www.mischianti.org
-# VERSION: 0.0.1
+# VERSION: 0.0.2
 #
 # Description:
 # write all pins
@@ -24,18 +24,18 @@
 
 from machine import Pin
 
-from PCF8574 import PCF8574, P0, P7, P6, P1, P2, P3, P5, P4, DigitalInput
+from PCF8574 import PCF8574
 
 pcf = PCF8574(0x38, sda=21, scl=22 )
 
-pcf.Pin(P0, Pin.OUT)
-pcf.Pin(P1, Pin.OUT)
-pcf.Pin(P2, Pin.OUT)
-pcf.Pin(P3, Pin.OUT)
-pcf.Pin(P7, Pin.OUT)
-pcf.Pin(P6, Pin.OUT)
-pcf.Pin(P5, Pin.OUT)
-pcf.Pin(P4, Pin.OUT)
+pcf.Pin(PCF8574.P0, Pin.OUT)
+pcf.Pin(PCF8574.P1, Pin.OUT)
+pcf.Pin(PCF8574.P2, Pin.OUT)
+pcf.Pin(PCF8574.P3, Pin.OUT)
+pcf.Pin(PCF8574.P7, Pin.OUT)
+pcf.Pin(PCF8574.P6, Pin.OUT)
+pcf.Pin(PCF8574.P5, Pin.OUT)
+pcf.Pin(PCF8574.P4, Pin.OUT)
 
 pcf.begin()
 

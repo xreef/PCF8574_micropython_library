@@ -3,7 +3,7 @@
 #
 # AUTHOR:  Renzo Mischianti
 # Website: www.mischianti.org
-# VERSION: 0.0.1
+# VERSION: 0.0.2
 #
 # Description:
 # read value of a pin
@@ -24,14 +24,14 @@
 
 from machine import Pin
 
-from PCF8574 import PCF8574, P0, P7, P6, P1, P2, P3, P5, P4
+from PCF8574 import PCF8574
 
 pcf = PCF8574(0x38, sda=21, scl=22 )
 
-pcf.Pin(P0, Pin.IN)
+pcf.Pin(PCF8574.P0, Pin.IN)
 
 pcf.begin()
 
-value = pcf.digital_read(P0)
+value = pcf.digital_read(PCF8574.P0)
 
 print(value)

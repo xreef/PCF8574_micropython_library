@@ -2,7 +2,7 @@
 # PCF8574 GPIO Port Expand
 #
 # AUTHOR:  Renzo Mischianti
-# VERSION: 0.0.1
+# VERSION: 0.0.2
 #
 #           _____
 #     A0  |1    16| Vcc
@@ -73,6 +73,8 @@ logging = Logger(False)
 
 logger = logging.getLogger(__name__)
 
+DEBOUNCE_LATENCY = 100
+
 P0 = 0
 P1 = 1
 P2 = 2
@@ -82,9 +84,16 @@ P5 = 5
 P6 = 6
 P7 = 7
 
-DEBOUNCE_LATENCY = 100
-
 class PCF8574:
+    P0 = 0
+    P1 = 1
+    P2 = 2
+    P3 = 3
+    P4 = 4
+    P5 = 5
+    P6 = 6
+    P7 = 7
+
     def __init__(self, address, i2c=None, i2c_id=0, sda=None, scl=None, interrupt_pin=None, interrupt_callback=None):
         if i2c:
             self._i2c = i2c
